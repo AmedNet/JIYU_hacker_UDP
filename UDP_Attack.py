@@ -40,7 +40,7 @@ class Ui_UDPAttacker(object):
 
         self.label = ctk.CTkLabel(
             self.groupBox_2344,
-            text="          1查看手册\nAlt+S发送   Alt+P停止",
+            text="          F1查看手册\nAlt+S发送   Alt+P停止",
             font=ctk.CTkFont(family="Microsoft YaHei", size=11),
             text_color="gray70",
             justify="left"
