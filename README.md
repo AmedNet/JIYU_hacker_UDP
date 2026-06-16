@@ -11,15 +11,11 @@
 
 ---
 
-
 ![Python](https://img.shields.io/badge/Python-3.8+-0099ff?style=for-the-badge&labelColor=181818&logo=python&logoColor=white)
-![datetime](https://img.shields.io/badge/datetime-Time-0099ff?style=for-the-badge&labelColor=181818)
 ![socket](https://img.shields.io/badge/socket-Network-0099ff?style=for-the-badge&labelColor=181818)
 ![subprocess](https://img.shields.io/badge/subprocess-Process-0099ff?style=for-the-badge&labelColor=181818)
 ![threading](https://img.shields.io/badge/threading-Multi_Thread-0099ff?style=for-the-badge&labelColor=181818)
 ![customtkinter](https://img.shields.io/badge/customtkinter-UI-0099ff?style=for-the-badge&labelColor=181818)
-![attackCore](https://img.shields.io/badge/attackCore-Core-0099ff?style=for-the-badge&labelColor=181818)
-
 
 </div>
 
