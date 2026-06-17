@@ -17,8 +17,6 @@
 ![threading](https://img.shields.io/badge/threading-Multi_Thread-0099ff?style=for-the-badge&labelColor=181818)
 ![customtkinter](https://img.shields.io/badge/customtkinter-UI-0099ff?style=for-the-badge&labelColor=181818)
 
-</div>
-
 ---
 
 ## ✨ 特性与功能说明
@@ -35,6 +33,8 @@
 | 🎨 **现代暗色 UI** | 深色主题设计,扁平化UI,富有现代感 |
 | 🌐 **多线程并发** | 如果你把所有ip用;隔开塞进去,那么就能实现一秒内全班关机 |
 | 👻 **伪装命名** | 这个不多说 |
+
+</div>
 
 > **注意**：项目界面使用了伪装命名（如"OFF"、"OFFline"、"Powershell"等）的隐喻.每轮发送后会有一个约10秒的冷却时期,该期间内若再次发送将重新计时
 
