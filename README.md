@@ -71,7 +71,7 @@ pip install pyinstaller
 ```
 > 打包
 ```bash
-pyinstaller  --onefile  -w -i .\logo.ico  .\UDP_Attack.py
+pyinstaller --onefile -w -i .\logo.ico --add-data "p.ps1;." .\UDP_Attack.py
 ```
 
 ## ⚠️ 免责声明
