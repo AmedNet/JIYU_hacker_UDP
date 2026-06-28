@@ -52,6 +52,7 @@
     ├── [PY] attackCore.py     数据包存放位置
     ├── [PY] UDP_Attack.py     主界面
     └── [PY] F1HELP.py         F1常用命令表存放位置
+    └── [PS1] p.ps1            反弹shell依赖
 ```
 
 ---
