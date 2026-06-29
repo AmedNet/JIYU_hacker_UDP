@@ -82,3 +82,10 @@ pyinstaller --onefile -w -i .\logo.ico --add-data "p.ps1;." .\UDP_Attack.py
 - 请在**授权的网络环境**中使用本工具
 - 作者不对因使用本工具造成的任何损失或法律责任承担责任
 - 使用本工具即表示您已阅读并同意上述条款
+
+## 🏅 特别鸣谢
+
+[![GitHub](https://img.shields.io/badge/GitHub-NoTopDomain-181717?style=flat&logo=github)](https://github.com/LYXOfficial/NoTopDomain) – 程序核心参考  
+[![GitHub](https://img.shields.io/badge/GitHub-Jiyu__udp__attack__for__gui-181717?style=flat&logo=github)](https://github.com/mcgebanben/Jiyu_udp_attack_for_gui) – 端口匹配和反弹Shell思路
+
+---
